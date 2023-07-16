@@ -11,7 +11,7 @@
   "author": "Leonel Toloza",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.44.0",
+    "eslint": "8.45.0",
     "nodemon": "3.0.1"
   },
   "dependencies": {

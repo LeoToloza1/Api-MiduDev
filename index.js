@@ -1,8 +1,16 @@
 //const http = require('http'); usando express
 const express = require('express');
-const { request } = require('http');
+//const request = require('http');
 const server = express();
 server.use(express.json());
+server.use((request, response, next)=>{
+  console.log(request.method);
+  console.log(request.path);
+  console.log(request.body)
+  console.log('-------------');
+  next();
+});
+
 const puerto = 3001;
 /* SE EMPIEZA A UTILIZAR EXPRESS
 const server = http.createServer((request, response) => {
@@ -105,6 +113,11 @@ date: new Date().toISOString() establece la fecha actual en formato ISO de la nu
 notes = notes.concat(newNote) agrega la nueva nota a la matriz notes utilizando el método concat().
 response.json(newNote) envía la nueva nota como respuesta en formato JSON.
  */
+server.use((request,response)=>{
+response.status(404).json({
+error:'Not Found'
+});
+});
 
 server.listen(puerto, (error) => {
   if (error) {
